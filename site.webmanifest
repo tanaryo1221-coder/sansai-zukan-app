@@ -1,0 +1,17 @@
+{
+  "name": "山菜図鑑",
+  "short_name": "山菜図鑑",
+  "description": "山菜の写真、採取記録、擬人化図鑑を楽しめる山菜アプリ。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f3e7",
+  "theme_color": "#405a39",
+  "icons": [
+    {
+      "src": "assets/koshiabura-chibi.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}

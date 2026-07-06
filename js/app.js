@@ -370,13 +370,6 @@ function renderHome() {
       <h1>山菜図鑑</h1>
       <p>春の山を記録する</p>
     </section>
-    <section class="download-panel" aria-label="\u30a2\u30d7\u30ea\u306e\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9">
-      <div>
-        <strong>\u5c71\u83dc\u56f3\u9451\u3092\u6301\u3061\u51fa\u3059</strong>
-        <span>\u3053\u306e\u30a2\u30d7\u30ea\u4e00\u5f0f\u3092ZIP\u3067\u4fdd\u5b58\u3067\u304d\u307e\u3059\u3002</span>
-      </div>
-      <a class="download-button" href="sansai-zukan-app.zip" download>\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9</a>
-    </section>
     <section class="plant-grid" aria-label="山菜一覧">
       ${plants.map((plant) => {
         const plantState = getPlantState(plant.id);
