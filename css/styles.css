@@ -242,7 +242,9 @@ img {
 
 .plant-tile {
   display: grid;
+  grid-template-rows: auto 2.3em;
   gap: 10px;
+  align-content: start;
   min-width: 0;
   color: var(--ink);
   background: transparent;
@@ -269,7 +271,7 @@ img {
   position: relative;
   overflow: hidden;
   justify-self: center;
-  width: 92%;
+  width: min(92%, 168px);
   aspect-ratio: 1;
   border: 2px solid rgba(189, 178, 125, 0.62);
   border-radius: 18px;
@@ -296,11 +298,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 2px;
   min-height: 2.3em;
+  inline-size: 100%;
   color: #293c28;
   font-family: var(--display-font);
-  font-size: clamp(0.68rem, 2.45vw, 0.94rem);
+  font-size: clamp(0.62rem, 2.15vw, 0.92rem);
   font-weight: 800;
   line-height: 1.2;
   white-space: nowrap;
@@ -310,8 +313,8 @@ img {
 .plant-name::after {
   display: block;
   flex: 0 0 auto;
-  width: 15px;
-  height: 14px;
+  width: 13px;
+  height: 12px;
   background-image: url("../assets/name-leaf-left.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -997,11 +1000,23 @@ img {
   }
 
   .plant-grid {
-    gap: 24px 12px;
+    gap: 24px 10px;
   }
 
   .plant-icon {
-    width: 88%;
+    width: min(86%, 112px);
+    border-radius: 14px;
+  }
+
+  .plant-name {
+    gap: 1px;
+    font-size: clamp(0.58rem, 2.65vw, 0.82rem);
+  }
+
+  .plant-name::before,
+  .plant-name::after {
+    width: 11px;
+    height: 11px;
   }
 
   .detail-head,

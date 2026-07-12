@@ -563,6 +563,7 @@ function detailImageFor(plant) {
 
 function render() {
   const route = window.location.hash || "#/";
+  const shouldResetScroll = route !== previousRoute;
   const isFlip = route.includes("/girl") || previousRoute.includes("/girl");
   previousRoute = route;
 
@@ -571,6 +572,7 @@ function render() {
 
   if (parts.length === 0) {
     renderHome();
+    resetScrollPosition(shouldResetScroll);
     return;
   }
 
@@ -581,10 +583,22 @@ function render() {
     else if (page === "photos") renderPhotos(plant);
     else if (page === "girl") renderGirl(plant);
     else renderDetail(plant);
+    resetScrollPosition(shouldResetScroll);
     return;
   }
 
   renderHome();
+  resetScrollPosition(shouldResetScroll);
+}
+
+function resetScrollPosition(shouldResetScroll) {
+  if (!shouldResetScroll) return;
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    app.scrollTop = 0;
+  });
 }
 
 function renderHome() {
@@ -896,7 +910,7 @@ function unlockGirl(plant) {
   state.unlocked[plant.id] = true;
   saveState();
   document.querySelector("#unlockImage").src = plant.girlImage;
-  document.querySelector("#unlockText").textContent = `${plant.name}少女 解放`;
+  document.querySelector("#unlockText").textContent = "山菜娘開放！";
   overlay.hidden = false;
   window.setTimeout(() => {
     overlay.hidden = true;
