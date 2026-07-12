@@ -9,9 +9,10 @@
   "theme_color": "#405a39",
   "icons": [
     {
-      "src": "assets/koshiabura-chibi.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
+      "src": "assets/app-icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
