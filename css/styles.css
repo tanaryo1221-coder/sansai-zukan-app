@@ -332,10 +332,16 @@ img {
   place-items: center;
   margin: 44px -18px 0;
   padding: 36px 18px 26px;
-  color: #3d4a36;
-  font-family: var(--display-font);
-  font-size: clamp(1.08rem, 5vw, 1.42rem);
-  letter-spacing: 0.08em;
+  color: rgba(54, 70, 49, 0.78);
+  font-size: clamp(0.72rem, 2.6vw, 0.86rem);
+  font-weight: 600;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.home-note p {
+  max-width: 46rem;
+  margin: 0;
 }
 
 .home-note::before {
