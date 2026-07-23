@@ -190,30 +190,19 @@ img {
 .home-title {
   display: grid;
   place-items: center;
-  min-height: 260px;
-  margin: 0 -18px 24px;
-  padding: 18px 18px 34px;
+  min-height: 0;
+  margin: 0 -18px 26px;
+  padding: 18px;
   overflow: hidden;
   text-align: center;
 }
 
 .home-title::before {
-  position: absolute;
-  inset: auto -8% 0;
-  height: 132px;
-  background:
-    radial-gradient(ellipse at 18% 100%, rgba(63, 97, 72, 0.18) 0 34%, transparent 35%),
-    radial-gradient(ellipse at 82% 100%, rgba(63, 97, 72, 0.18) 0 37%, transparent 38%),
-    radial-gradient(ellipse at 50% 100%, rgba(63, 97, 72, 0.12) 0 44%, transparent 45%);
-  content: "";
+  content: none;
 }
 
 .home-title::after {
-  width: 176px;
-  height: 1px;
-  margin-top: 12px;
-  background:
-    linear-gradient(90deg, transparent, rgba(173, 138, 56, 0.72), transparent);
+  content: none;
 }
 
 .home-title h1 {
@@ -238,7 +227,7 @@ img {
   position: relative;
   z-index: 1;
   width: min(100%, 620px);
-  margin: 0 auto 22px;
+  margin: 0 auto;
   border: 1px solid rgba(189, 178, 125, 0.4);
   border-radius: 8px;
   box-shadow: 0 14px 32px rgba(48, 55, 43, 0.12);

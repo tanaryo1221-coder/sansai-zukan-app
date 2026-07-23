@@ -611,8 +611,6 @@ function renderHome() {
   app.innerHTML = `
     <section class="page-title home-title">
       <img class="home-title-banner" src="assets/home-title-chibi-banner.png" alt="山菜娘たちが集まった山菜図鑑のタイトルイラスト">
-      <h1>山菜図鑑</h1>
-      <p>春の山を記録する</p>
     </section>
     <section class="plant-grid" aria-label="山菜一覧">
       ${plants.map((plant) => {
