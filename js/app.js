@@ -576,6 +576,12 @@ function render() {
     return;
   }
 
+  if (parts[0] === "girls") {
+    renderGirlDex();
+    resetScrollPosition(shouldResetScroll);
+    return;
+  }
+
   if (parts[0] === "plant") {
     const plant = getPlant(parts[1]);
     const page = parts[2] || "detail";
@@ -604,6 +610,7 @@ function resetScrollPosition(shouldResetScroll) {
 function renderHome() {
   app.innerHTML = `
     <section class="page-title home-title">
+      <img class="home-title-banner" src="assets/home-title-chibi-banner.png" alt="山菜娘たちが集まった山菜図鑑のタイトルイラスト">
       <h1>山菜図鑑</h1>
       <p>春の山を記録する</p>
     </section>
@@ -621,9 +628,38 @@ function renderHome() {
         `;
       }).join("")}
     </section>
+    <section class="home-girl-dex">
+      <button class="action-button girl-dex-button" type="button" data-route="#/girls">擬人化図鑑</button>
+    </section>
     <section class="home-note">
       <p>※山菜の誤食には十分注意してください。本アプリはAIによる要約を含むため、毒草の判別や情報等には十分注意し、自己責任でのアプリ使用をお願いしています。</p>
     </section>
+  `;
+}
+
+function renderGirlDex() {
+  const unlockedPlants = plants.filter((plant) => getPlantState(plant.id).unlocked);
+  app.innerHTML = `
+    <div class="top-actions">
+      <button class="ghost-button" type="button" data-route="#/">一覧へ戻る</button>
+    </div>
+
+    <section class="page-title compact-title">
+      <h1>擬人化図鑑</h1>
+      <p>解放済みの山菜娘</p>
+    </section>
+
+    ${unlockedPlants.length
+      ? `<section class="girl-dex-list" aria-label="解放済みの擬人化少女一覧">
+          ${unlockedPlants.map((plant) => `
+            <button class="girl-dex-card" type="button" data-route="#/plant/${plant.id}/girl" aria-label="${plant.name}の擬人化ページへ">
+              <img src="${plant.girlImage}" alt="${plant.name}の擬人化少女">
+            </button>
+          `).join("")}
+        </section>`
+      : `<section class="empty-state">
+          <p>まだ解放済みの山菜娘はいません。</p>
+        </section>`}
   `;
 }
 
